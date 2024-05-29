@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.set("view engine", "ejs")
+app.set("view engine", "ejs") 
 
 app.get("/", function (req, res) {
   res.render("index")
@@ -45,7 +45,7 @@ app.post("/register", async function (req, res) {
     });
   });
 })
-gm
+
 app.post("/login", async function (req, res) {
  
   try{
