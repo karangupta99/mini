@@ -41,7 +41,7 @@ app.post("/register", async function (req, res) {
       })
       let token = jwt.sign({ email: email, userid: user._id }, "secret")
       res.cookie("token", token)
-      res.send("hogya")
+      res.send("succcessfully Register")
     });
   });
 })
@@ -57,7 +57,7 @@ app.post("/login", async function (req, res) {
       if (result) {
         let token = jwt.sign({ email: email, userid: user._id }, "secret")
         res.cookie("token", token)
-        res.status(200).send("u can login")
+        res.status(200).send("welcome to your profile")
       }
       else res.redirect("/login")
     });
