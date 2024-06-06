@@ -1,6 +1,5 @@
 const express = require("express")
 const app = express()
-
 const bcrypt = require("bcrypt")
 const usermodel = require("./models/user-model")
 const postmodel = require("./models/post-model")
@@ -73,13 +72,12 @@ app.get("/logout", function (req, res) {
 })
 
 function isloggedin(req, res, next) {
-  if (req.cookies.token === "") res.send("u must be login")
+  if (req.cookies.token === "") res.render("login")
   else {
     let data = jwt.verify(req.cookies.token, "secret")
     req.user = data
     next();
   }
-
 }
 
 app.listen(3000)
